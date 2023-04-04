@@ -1,2 +1,2 @@
 theme: minima
-# sithipath.github.io
+# Sithipath
