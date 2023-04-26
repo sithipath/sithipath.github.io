@@ -297,5 +297,27 @@ that retail traders usually take profit too soon.<br />
 one potential strategy to take a long position is to wait for retail
 traders to take an extreme long position when the price dip, and then
 entering the trade when they are taking profit.</p>
+<h3 id="correlation-coefficient">Correlation Coefficient</h3>
+<p>The next step is to find the correlation coefficient between price
+and retail sentiment. Since I have the following columns in my dataframe
+[close, Short, Long, Short_percentage, Long_percentage, Short_scaled,
+Long_scaled, close_scaled], , I should end up with 12 correlation
+coefficients. The results of the correlation coefficients are as
+follows:</p>
+<div class="center">
+<p><img src="p5.png" alt="image" /></p>
+</div>
+<p>The result is not surprising; it seems that ’Long_percentage’ and
+’Long_scaled’ are highly correlated with the price. I assume it’s
+because EURUSD is on an increasing trend. However, it’s worth noting
+that ’Short_percentage’ and ’Short_scaled’ also show correlation even if
+it’s not in decreasing trend.</p>
+<h3 id="granger-causality">Granger causality</h3>
+<p>What is Granger causality? I, myself, with a BSc in Statistics and an
+M.Eng. in ORIE, as well as having passed numerous actuarial exams, have
+no idea what the hell it is. However, it seems that people have been
+using it to analyze "whether one time series can predict another time
+series." I will walk through the mathematics behind it just once, to
+know what I’m doing.</p>
 </body>
 </html>
