@@ -168,7 +168,6 @@
 <header id="title-block-header">
 <h1 class="title">How I develop directional bias from fundamental and
 sentiment analysis in currency trading</h1>
-<p class="date">April 2023</p>
 </header>
 <h1 id="my-opinion-toward-fundamental-analysis-in-equity-market">My
 opinion toward Fundamental analysis in equity market</h1>
@@ -180,7 +179,8 @@ Technical analysis can also provide a forward-looking perspective too if
 you change the timeframe to a week or a month. To share with you, I
 began my investment journey with a book called "Gone Fishing with
 Buffett" and to be honest, I don’t think it’s beneficial for my trading
-journey as it oversimplifies so many concepts.</p>
+journey as it oversimplifies so many concepts in fundamental
+analysis.</p>
 <h1 id="my-opinion-toward-fundamental-analysis-in-forex-market">My
 opinion toward Fundamental Analysis in Forex market</h1>
 <p>I think that the context of Fundamental Analysis in Forex and Equity
@@ -236,13 +236,66 @@ with data</h3>
 <div class="center">
 <p><img src="p1.png" alt="image" /></p>
 </div>
-<p>The screenshot above displays the retail sentiment and the price of
+<p>The screenshot above displays the retail sentiment and price of
 EURUSD. It can be observed that when the retail crowd holds long
-positions, the price tends to decrease, whereas when the retail
-investors have short positions, the price tends to increase. However, we
-should validate this observation numerically. Since we cannot access the
-numerical data directly and only have access to the graph, I will use a
-computer vision algorithm to convert the graph into numerical data for
-further analysis.</p>
+positions, the price tends to decrease, whereas when retail investors
+have short positions, the price tends to increase. However, we need to
+validate this observation numerically. I have tried different approaches
+to obtain the data from the chart above, including a computer vision
+algorithm, but it has not been successful. If I were to obtain the data
+from a provider such as TraderMade, it would be extremely expensive and
+FXCM provides historical sentiment data only to premium accounts.
+Another way to obtain the data is to run a Python script on the cloud
+every hour to extract the sentiment. I will explore this option further
+when I have more resources. Alternatively, I could manually input the
+data into Excel, but this would require a significant amount of effort
+and it’s a dump way to spend time.<br />
+<br />
+Even though it may seem foolish to manually collect data from a website,
+my curiosity overpowered me this time. I spent hours collecting position
+sizes from the website manually, and here is the analysis.<br />
+</p>
+<h3 id="visual-inspection">Visual Inspection</h3>
+<p>Many YouTubers and bloggers on Reddit have previously emphasized the
+importance of taking the opposite side of retail sentiment. However,
+when we plot retail sentiment against price, it tells a completely
+different story. Let’s analyze the chart below one by one, and I found
+this insight extremely interesting.<br />
+<br />
+<strong>1) Scaled price vs percentage of long position</strong></p>
+<div class="center">
+<p><img src="p2.png" alt="image" /></p>
+</div>
+<p>My interpretation of the figure is that even though retail sentiment
+is often considered to be incorrect, when the sentiment on the long side
+reaches its peak, the price usually goes up. There are many assumptions
+behind this observation, but I will discuss them in more detail later in
+the analysis.<br />
+<br />
+<strong>2) Scaled price vs scaled short position size</strong></p>
+<div class="center">
+<p><img src="p3.png" alt="image" /></p>
+</div>
+<p>There are two observations from the figure above<br />
+1) When the short position size is low, the price usually goes up (4 out
+of 5 times).<br />
+2) When the short position size is at its peak, the price might not go
+down because it goes against the main trend.<br />
+<br />
+<strong>3) Scaled price vs scaled long position size</strong></p>
+<div class="center">
+<p><img src="p4.png" alt="image" /></p>
+</div>
+<p>From the figure above, it can be observed that when the long position
+reaches its peak, the price tends to go up from there.<br />
+<br />
+From the above three charts, it is difficult to conclude that retail
+sentiment is a contrarian indicator, as we often see the price go up
+when most retail traders are in a long position, and the price go down
+when most of them are in a short position. However, it can be concluded
+that retail traders usually take profit too soon.<br />
+one potential strategy to take a long position is to wait for retail
+traders to take an extreme long position when the price dip, and then
+entering the trade when they are taking profit.</p>
 </body>
 </html>

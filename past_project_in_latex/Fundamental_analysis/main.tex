@@ -4,12 +4,11 @@
 \usepackage{hyperref}
 \usepackage[margin=1in]{geometry} 
 \title{How I develop directional bias from fundamental and sentiment analysis in currency trading}
-\date{April 2023}
 \begin{document}
 \maketitle
 
 \section{My opinion toward Fundamental analysis in equity market}
-I'm not Warren Buffett, so I'm not going to say something like, "Technical analysis is like looking in the rearview mirror while driving. Fundamental analysis, on the other hand, is like looking through the windshield," because I think that's a false statement. Technical analysis can also provide a forward-looking perspective too if you change the timeframe to a week or a month. To share with you, I began my investment journey with a book called "Gone Fishing with Buffett" and to be honest, I don't think it's beneficial for my trading journey as it oversimplifies so many concepts. 
+I'm not Warren Buffett, so I'm not going to say something like, "Technical analysis is like looking in the rearview mirror while driving. Fundamental analysis, on the other hand, is like looking through the windshield," because I think that's a false statement. Technical analysis can also provide a forward-looking perspective too if you change the timeframe to a week or a month. To share with you, I began my investment journey with a book called "Gone Fishing with Buffett" and to be honest, I don't think it's beneficial for my trading journey as it oversimplifies so many concepts in fundamental analysis. 
 
 \section{My opinion toward Fundamental Analysis in Forex market}
 I think that the context of Fundamental Analysis in Forex and Equity is extremely different. In equity trading, everyone wants to make money from the market, so someone with better insight - usually an institutional trader - often comes out on top. Retail traders who buy a stock with strong fundamentals usually do so after the financial report has been released and the P/E ratio has already skyrocketed. While a stock with a solid financial report and a low P/E ratio may seem promising to retail traders, only those with more insider information know why the P/E ratio is low - and once again, those are usually institutional traders. My point is that making accurate fundamental analyses requires too much effort for retail traders.
@@ -31,16 +30,37 @@ Above are the opinions of people on the internet, it seems everyone tends to agr
 \begin{center}
     \includegraphics[scale=0.5]{p1.png}    
 \end{center}
-The screenshot above displays the retail sentiment and the price of EURUSD. It can be observed that when the retail crowd holds long positions, the price tends to decrease, whereas when the retail investors have short positions, the price tends to increase. However, we should validate this observation numerically. Since we cannot access the numerical data directly and only have access to the graph, I will use a computer vision algorithm to convert the graph into numerical data for further analysis. 
+The screenshot above displays the retail sentiment and price of EURUSD. It can be observed that when the retail crowd holds long positions, the price tends to decrease, whereas when retail investors have short positions, the price tends to increase. However, we need to validate this observation numerically. I have tried different approaches to obtain the data from the chart above, including a computer vision algorithm, but it has not been successful. If I were to obtain the data from a provider such as TraderMade, it would be extremely expensive and FXCM provides historical sentiment data only to premium accounts. Another way to obtain the data is to run a Python script on the cloud every hour to extract the sentiment. I will explore this option further when I have more resources. Alternatively, I could manually input the data into Excel, but this would require a significant amount of effort and it's a dump way to spend time.  \\ \\
+%--------------------------------------------------------%
 
-%https://www.reddit.com/r/Forex/comments/q7yiw1/how_can_91_of_traders_be_short_yet_this_pair/
+Even though it may seem foolish to manually collect data from a website, my curiosity overpowered me this time. I spent hours collecting position sizes from the website manually, and here is the analysis. \\
 
+\subsubsection{Visual Inspection}
+Many YouTubers and bloggers on Reddit have previously emphasized the importance of taking the opposite side of retail sentiment. However, when we plot retail sentiment against price, it tells a completely different story. Let's analyze the chart below one by one, and I found this insight extremely interesting. \\ \\ 
+\textbf{1) Scaled price vs percentage of long position}
+\begin{center}
+    \includegraphics[scale=0.7]{p2.png}    
+\end{center}
+My interpretation of the figure is that even though retail sentiment is often considered to be incorrect, when the sentiment on the long side reaches its peak, the price usually goes up. There are many assumptions behind this observation, but I will discuss them in more detail later in the analysis. \\ \\ 
 
+\textbf{2) Scaled price vs scaled short position size}
+\begin{center}
+    \includegraphics[scale=0.7]{p3.png}    
+\end{center}
+There are two observations from the figure above \\
+1) When the short position size is low, the price usually goes up (4 out of 5 times). \\
+2) When the short position size is at its peak, the price might not go down because it goes against the main trend.  \\ \\
 
+\textbf{3) Scaled price vs scaled long position size}
+\begin{center}
+    \includegraphics[scale=0.7]{p4.png}    
+\end{center}
+From the figure above, it can be observed that when the long position reaches its peak, the price tends to go up from there.\\ \\
 
+From the above three charts, it is difficult to conclude that retail sentiment is a contrarian indicator, as we often see the price go up when most retail traders are in a long position, and the price go down when most of them are in a short position. However, it can be concluded that retail traders usually take profit too soon. \\ 
 
-
+one potential strategy to take a long position is to wait for retail traders to take an extreme long position when the price dip, and then entering the trade when they are taking profit.
 \end{document}
 \begin{center}
-    \includegraphics[scale=0.4]{p1.png}    
+    \includegraphics[scale=0.7]{p1.png}    
 \end{center}
