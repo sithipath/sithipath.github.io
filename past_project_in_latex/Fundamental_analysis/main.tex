@@ -69,7 +69,33 @@ The next step is to find the correlation coefficient between price and retail se
 The result is not surprising; it seems that 'Long\_percentage' and 'Long\_scaled' are highly correlated with the price. I assume it's because EURUSD is on an increasing trend. However, it's worth noting that 'Short\_percentage' and 'Short\_scaled' also show correlation even if it's not in decreasing trend.
 
 \subsubsection{Granger causality}
-What is Granger causality? I, myself, with a BSc in Statistics and an M.Eng. in ORIE, as well as having passed numerous actuarial exams, have no idea what the hell it is. However, it seems that people have been using it to analyze "whether one time series can predict another time series." I will walk through the mathematics behind it just once, to know what I'm doing.
+What is Granger causality? It seems there is a guy who won Nobel Prize from it. I, myself, with a BSc in Statistics and an M.Eng. in ORIE, as well as having passed numerous actuarial exams, have no idea what the hell it is. However, it seems that people have been using it to analyze "whether one time series can predict another time series." I will walk through the mathematics behind it just once, to know what I'm doing.
+\\ \\ Say we have a time series y, \\
+\begin{center}
+$Y_t = \alpha_0 + \alpha_1 Y_{t-1} + \alpha_2 Y_{t-2} + \cdots + \alpha_p Y_{t-p} + \varepsilon_t$
+\end{center}
+Next, we model Y using both its own past values and the past values of X
+\begin{center}
+$Y_t = \beta_0 + \beta_1 Y_{t-1} + \beta_2 Y_{t-2} + \cdots + \beta_p Y_{t-p} + \gamma_1 X_{t-1} + \gamma_2 X_{t-2} + \cdots + \gamma_p X_{t-p} + \eta_t$
+\end{center}
+Then, we compare the residuals from the two models ($\varepsilon_t$ and $\eta_t$) to determine if including the past values of X significantly improves the prediction of Y. This can be done using an F-test, which tests the null hypothesis that the coefficients of the X variable ($\gamma_1$,$\gamma_2$,...) are all equal to zero. If the F-test rejects the null hypothesis, then we can conclude that the past values of X help predict the future values of Y
+\\ \\
+Next step, I'll perform Granger causality between the price and Retail Sentiment.
+\begin{center}
+    \includegraphics[scale=0.7]{p6.png}    
+\end{center}
+\begin{center}
+    \includegraphics[scale=0.7]{p7.png}    
+\end{center}
+Based on the results, it can be concluded that there is no significant Granger causality relationship between retail sentiment and price. \\ 
+\subsubsection{Next Step on explore retail sentiment}
+Although the Granger causality relationship may not hold, the correlation between the retail sentiment graph and price still provides valuable insights, particularly when utilized with the right directional bias. Further exploration of this relationship across various timeframes, such as the 1-hour timeframe, and with different assets such as XAUUSD and USDJPY, should be explored. 
+
+\subsection{Institutional Money Sentiment}
+Many YouTubers claim that institutional money is referred to as the "smart money." In this section, I aim to prove this using the COT report. If you are unfamiliar with the COT report, google or gpt it and come back.
+
+
+
 
 
 
