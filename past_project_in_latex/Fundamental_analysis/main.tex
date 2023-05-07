@@ -93,6 +93,49 @@ Although the Granger causality relationship may not hold, the correlation betwee
 
 \subsection{Institutional Money Sentiment}
 Many YouTubers claim that institutional money is referred to as the "smart money." In this section, I aim to prove this using the COT report. If you are unfamiliar with the COT report, google or gpt it and come back.
+
+\subsubsection{Visual Inspection}
+In the following section, I want to see the price with, long/short position, and long/short percentage, with all values normalized between 0 and 1. By doing so, I intend to analyze their respective behaviors and interactions. \\
+
+\textbf{1) Scaled price vs scaled long x long percentage}
+\begin{center}
+    \includegraphics[scale=0.7]{p8.png}    
+\end{center}
+
+Upon examining the graph comparing normalized closing prices and normalized long positions, we can observe a correlation and predictive capability in the Commitment of Traders (CoT) data. For instance, around index 50, institutional money considerably reduces long positions followed by a consistent decline in price. This pattern is also visible in the percentage graph, although it may be less clear due to its potentially misleading nature. When long positions decrease significantly, short positions decrease as well, which can make the long percentage appear to be less affected. Therefore, I conclude that the normalized long positions provide more valuable insights than the long percentage. I will continue to investigate the graph focusing on short positions to gain further understanding. \\
+
+\textbf{2) Scaled price vs scaled short x short percentage}
+\begin{center}
+    \includegraphics[scale=0.7]{p9.png}    
+\end{center}
+We can observe an inverse relationship between price and short position, with two noteworthy observations: \\
+1) At index 50, when the long position significantly decreases, the short position continues to increase and reaches its peak at index 150. It appears as though the long positions were converted to short positions. Interestingly, even when the short position reaches its peak and begins to decrease, the price continues to decline for an extended period. \\ 
+2) Similar to the observation regarding the long percentage, even when the short position increases substantially around index 100, the short percentage remains relatively stable. This leads to the conclusion that we should prioritize the normalized values over the percentage-based representations for a clearer understanding of the data.
+
+\subsubsection{Correlation Coefficient}
+Like retail sentiment analysis, the next step is to find the correlation coefficient between price and institutional position. The results of the correlation coefficients are as follows:
+\begin{center}
+    \includegraphics[scale=1]{p10.png}    
+\end{center}
+As anticipated, the scaled long positions exhibit a stronger correlation with the price compared to the long percentage. Additionally, long positions demonstrate a positive correlation with the price, while short positions reveal a negative correlation. However, it is important to note that the magnitude of these correlations is not particularly large.
+\subsubsection{Granger causality}
+
+\begin{center}
+    \includegraphics[scale=1]{p11.png}    
+\end{center}
+
+\begin{center}
+    \includegraphics[scale=1]{p12.png}    
+\end{center}
+
+There is no significant Granger causality relationship between institutional money and price.
+
+
+\subsection{Reflection and next step on sentiment analysis}
+When attempting to establish a mathematical correlation between sentiment data and price, the results are often not very significant. Nonetheless, visual examination of the data appears to provide greater insight. For instance, by using retail sentiment as an oscillator and institutional money sentiment to develop a directional bias, more accurate results can be obtained.\\ \\ 
+For the subsequent phase, it is recommended to carry out the same analysis for each currency. However, gathering retail sentiment data for each currency can be a time-consuming task. As a solution, I plan to write a Python program to automatically scrape retail sentiment data on an hourly basis going forward.
+
+
 \end{document}
 \begin{center}
     \includegraphics[scale=0.7]{p1.png}    
