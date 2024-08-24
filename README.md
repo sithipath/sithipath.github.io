@@ -4,5 +4,5 @@
 We (Ayush, Hatsuo, Matt, Zain, and I) extract and analyze data from Twitter, Doordash, MTA, Yelp, and Streeteasy to determine the best neighborhood to live in Manhattan!
 
 
-### Decoding Physical and Cognitive Impacts of Particulate Matter Concentrations at Ultra-Fine Scales
-
+### [Leveraging Markov Chains for Citi Bike Allocation in NYC](assets/project/MUU-Project_Final.html)
+Christina, Zain, and I are delving into the stochastic realm of Markov Chains to enhance the optimization of Citi Bike distribution across New York City
