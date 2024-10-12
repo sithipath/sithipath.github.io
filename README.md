@@ -18,7 +18,7 @@ We posit that the foreign exchange (FX) market, particularly major currency pair
 Unlocking insights from public data sources for retail traders who can’t afford a Bloomberg Terminal.
 
 ## Others writings
-### [The Gambler’s Rule Problem, Monte Carlo, Jim Simons and a life lesson](assets/project/gambler_ruin/gambler_ruin_p.html)
+### [The Gambler’s Ruin Problem, Monte Carlo, Jim Simons and a life lesson](assets/project/gambler_ruin/gambler_ruin_p.html)
 The Gambler’s Ruin problem popped up in a letter from Blaise Pascal to Pierre Fermat way back in 1656. Jim Simons passed away in May 2024. Both make me ponder life a bit.
 
 
